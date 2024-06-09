@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Comment</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Редагування коментаря</h1>
+  <form action="/edit-comment/<%= comment.id %>" method="post">
+    <label for="content">Зміст:</label>
+    <textarea id="content" name="content" required><%= comment.content %></textarea>
+    <button type="submit">Зберегти зміни</button>
+  </form>
+  <a href="/post/<%= comment.post_id %>">Повернутись до допису</a>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* public/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+form {
+  margin-top: 20px;
+}
+
+p {
+  margin-bottom: 5px;
+  color: #6c757d;
+}
+form {
+  display: inline; /* Make the form inline with the post content */
+  margin-left: 10px; /* Add some margin to separate it from the post content */
+}
+button {
+  background-color: #dc3545; /* Use Bootstrap's danger color for delete button */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+form {
+  margin-top: 20px;
+}
+
+

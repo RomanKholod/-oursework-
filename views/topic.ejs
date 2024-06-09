@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= topic.title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1><%= topic.title %></h1>
+  <p><%= topic.content %></p>
+  <p>Створено: <%= topic.created_at.toISOString().replace('T', ' ').replace(/\..*$/, '') %>   <%= topic.username %> </p> 
+  <h2>Дописи</h2>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/post/<%= post.id %>">
+          <strong><%= post.title %></strong>
+        </a>
+        <p><%= post.content %></p>
+        <p>Створено: <%= post.created_at.toISOString().replace('T', ' ').replace(/\..*$/, '') %>   <%= post.username %>  <a href="/edit-post/<%= post.id %>">Редагувати допис</a></p> 
+        <p></p>
+        <form action="/delete-post/<%= post.id %>" method="post">
+          <button type="submit">Видалити</button>
+        </form>
+        <p></p>
+      </li>
+    <% }) %>
+  </ul>
+  <form action="/post/<%= topic.id %>" method="post"> 
+    <label for="title">Заголовок:</label>
+    <input type="text" id="title" name="title" required>
+    <label for="content">Зміст:</label> 
+    <textarea id="content" name="content" required></textarea>
+    <button type="submit">Створити допис</button>
+  </form>
+
+  <a href="/">Повернутись на домашню сторінку</a>
+</body>
+</html>

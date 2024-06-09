@@ -1,0 +1,21 @@
+<!-- views/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Topic</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Редугування теми</h1>
+  <form action="/edit-topic/<%= topic.id %>" method="post">
+    <label for="title">Заголовок:</label>
+    <input type="text" id="title" name="title" value="<%= topic.title %>" required>
+    <label for="content">Зміст:</label>
+    <textarea id="content" name="content" required><%= topic.content %></textarea>
+    <button type="submit">Зберегти зміни</button>
+  </form>
+  <a href="/">Повернутись на домашню сторінку</a>
+</body>
+</html>

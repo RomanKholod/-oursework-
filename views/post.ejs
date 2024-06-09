@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= post.title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1><%= post.title %></h1>
+  <p><%= post.content %></p>
+  <p>Створено <%= post.created_at.toISOString().replace('T', ' ').replace(/\..*$/, '') %>  <%= post.username %></p>
+  <h2>Коментарі</h2>
+  <ul>
+    <% comments.forEach(comment => { %>
+      <li>
+        <p><%= comment.content %></p>
+        <p>Створено: <%= comment.created_at.toISOString().replace('T', ' ').replace(/\..*$/, '') %>   <%= comment.username %>  <a href="/edit-comment/<%= comment.id %>">Редагувати коментар</a></p>
+        <p></p>
+        <form action="/delete-comment/<%= comment.id %>" method="post">
+          <button type="submit">Видалити</button>
+        </form>
+        <p></p>
+      </li>
+    <% }) %>
+  </ul>
+  <form action="/comment/<%= post.id %>" method="post">
+    <label for="comment">Залишити коментар:</label>
+    <textarea id="comment" name="content" required></textarea>
+    <button type="submit">Залишити Коментар</button>
+  </form>
+
+  <a href="/">Повернутись на домашню сторінку</a>
+</body>
+</html>
