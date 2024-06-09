@@ -1,1 +1,1 @@
-Very basic web-forum using Node.js and MySQL
+Very basic web-forum using Node.js, Express.js and MySQL
